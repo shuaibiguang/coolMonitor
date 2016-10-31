@@ -14,3 +14,5 @@ django 端口 9000
 采集端端口 8001
 
 前端使用开源后台模板AdminLTE-2.3.7
+
+python2.7 and python3.5  均可运行
