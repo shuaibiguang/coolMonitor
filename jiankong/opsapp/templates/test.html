@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>asd</title>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js
+"></script>
+</head>
+<body>
+	<h1 style="font-size:35px" class="zpc">当前CPU运行百分比：<span class="aa"></span></h1>
+	<script type="text/javascript">
+		$(function(){
+			var url = "http://192.168.124.23:8000/index/";
+
+			$.ajax({
+				url:url,
+				type:"get",
+				success:function(res){
+					var res = res;
+					console.log(res);
+					var a = res[0]*10;
+					var b = res[1]*10;
+					c = a+"%--"+b+"%";
+					$('.aa').html(c);
+				},
+				error:function(e){
+					console.log(e);
+				}
+			})
+		})
+	</script>
+</body>
+</html>
