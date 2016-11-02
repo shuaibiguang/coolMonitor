@@ -454,7 +454,8 @@
                 <!-- /.col -->
                 <div class="col-sm-3 col-xs-6">
                   <div class="description-block border-right">
-                    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 18kb/s</span>
+                    <span class="description-percentage text-green"><i class="fa fa-caret-up"></i><span class="net-up">18</span>MB</span>
+                    <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> <span class="net-down">18</span>MB</span>
                     <h5 class="description-header">网络使用情况</h5>
                     <span class="description-text">network</span>
                   </div>
@@ -752,8 +753,12 @@
                   async: false,
                   success:function(res){
                       var res = res;
-                      $('.cupnum').html(res+"%");
-                      abb.push(res);
+                      var net_up = res[1][2]/1024/1024;
+                      var net_down = res[1][2]/1024/1024;
+                      $('.net-up').html(net_up.toFixed(2));
+                      $('.net-down').html(net_down.toFixed(2));
+                      $('.cupnum').html(res[0]+"%");
+                      abb.push(res[0]);
                   },
                   error:function(e){
                       console.log(e);

@@ -21,7 +21,7 @@ class server():
         return psutil.virtual_memory()
 
     def get_cpu_info(self):
-        return psutil.cpu_percent()
+        return [psutil.cpu_percent(),psutil.net_io_counters()]
 
 if __name__ == '__main__':
     ser = server()
